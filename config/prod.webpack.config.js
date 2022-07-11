@@ -5,6 +5,9 @@ const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPl
 const { config: webpackConfig, plugins } = config({
   rootFolder: resolve(__dirname, '../'),
   ...(process.env.BETA && { deployment: 'beta/apps' }),
+  routes: {
+    '/api/sources': { host: "http://127.0.0.1:8000" }
+   }
 });
 
 plugins.push(
